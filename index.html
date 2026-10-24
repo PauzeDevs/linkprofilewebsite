@@ -34,6 +34,10 @@
     .about { width:100%; margin-top:30px; padding:18px 20px; border:1px solid #ffffffb8; border-radius:18px; background:#ffffff8c; box-shadow:0 5px 13px #6d242410; text-align:left; }
     .about h2 { margin:0 0 5px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
     .about p { margin:0; color:#554e59; font-size:14px; }
+    .guestbook { width:100%; margin-top:18px; padding:18px; border:1px solid #ffffffd9; border-radius:20px; background:#ffffff9c; box-shadow:0 8px 24px #7d313112; backdrop-filter:blur(12px); }
+    .guestbook h2 { margin:0 0 5px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
+    .guestbook-note { margin:0 0 10px; color:#827b89; font-size:12px; text-align:center; }
+    .guestbook iframe { display:block; width:100%; }
     .stack { width:100%; margin-top:30px; padding:18px; border:1px solid #ffffffd9; border-radius:20px; background:#ffffff9c; box-shadow:0 8px 24px #7d313112; backdrop-filter:blur(12px); text-align:left; }
     .stack h2 { margin:0 0 5px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
     .stack-note { margin:0 0 15px; color:#827b89; font-size:12px; text-align:center; }
@@ -105,6 +109,17 @@
     <section class="about" aria-labelledby="about-title">
       <h2 id="about-title">About me</h2>
       <p>I’m Pauze, an independent developer from India. I build web apps and Android tools, and I’m behind PauzeX Developments.</p>
+    </section>
+
+    <section class="guestbook" aria-labelledby="guestbook-title">
+      <h2 id="guestbook-title">Guestbook</h2>
+      <p class="guestbook-note">Leave a note — messages are public and posted with GitHub.</p>
+      <script src="https://utteranc.es/client.js"
+        repo="PauzeDevs/linkprofilewebsite"
+        issue-term="guestbook"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>
     </section>
 
     <footer>© 2026 Pauze · Thanks for stopping by.</footer>
