@@ -21,11 +21,19 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(ellipse at 15% 8%, #e6ebd7 0, transparent 32rem), var(--paper);
+      background: var(--paper);
       color: var(--ink);
       font: 16px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    main { width: min(680px, calc(100% - 40px)); margin: 0 auto; padding: 72px 0 36px; }
+    .ambient { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+    .ambient-orb { position:absolute; width:32rem; aspect-ratio:1; border-radius:50%; filter:blur(78px); opacity:.5; will-change:transform; }
+    .orb-one { top:-17rem; left:-12rem; background:#d9e8a7; animation:drift-one 27s ease-in-out infinite alternate; }
+    .orb-two { right:-15rem; bottom:-18rem; background:#bdd4c6; animation:drift-two 33s ease-in-out infinite alternate; }
+    .orb-three { top:18%; right:9%; width:19rem; background:#e8dfb9; opacity:.32; animation:drift-three 24s ease-in-out infinite alternate; }
+    @keyframes drift-one { to { transform:translate3d(7rem, 5rem, 0) scale(1.08); } }
+    @keyframes drift-two { to { transform:translate3d(-6rem, -5rem, 0) scale(1.12); } }
+    @keyframes drift-three { to { transform:translate3d(-4rem, 6rem, 0) scale(.92); } }
+    main { position:relative; z-index:1; width:min(680px, calc(100% - 40px)); margin:0 auto; padding:72px 0 36px; }
     .topline { display:flex; align-items:center; gap:10px; color:var(--green); font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
     .dot { width:8px; height:8px; background:#87a469; border-radius:50%; box-shadow:0 0 0 4px #87a46922; }
     .identity { display:flex; align-items:center; gap:18px; margin-top:28px; }
@@ -51,11 +59,19 @@
     footer { display:flex; justify-content:space-between; gap:16px; margin-top:40px; padding-top:17px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
     footer a { color:var(--green); text-decoration:none; }
     a:focus-visible { outline:3px solid #8ba16e; outline-offset:3px; }
-    @media (max-width:520px) { main { padding-top:50px; } footer { flex-direction:column; } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; } }
+    @media (max-width:520px) { main { padding-top:50px; } footer { flex-direction:column; } .ambient-orb { filter:blur(58px); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; }
+      .ambient-orb { animation:none !important; }
+    }
   </style>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient-orb orb-one"></span>
+    <span class="ambient-orb orb-two"></span>
+    <span class="ambient-orb orb-three"></span>
+  </div>
   <main>
     <div class="topline"><span class="dot" aria-hidden="true"></span> Personal links</div>
     <header>
