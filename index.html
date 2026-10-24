@@ -1,1 +1,164 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d8c8ff">
+  <meta name="description" content="Pauze's links: personal website, projects, GitHub, and Instagram.">
+  <title>Pauze — links</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink:#24202c;
+      --muted:#77717f;
+      --paper:#eee9f7;
+      --line:#ffffff;
+      --focus:#d52f3f;
+    }
+    * { box-sizing:border-box; }
+    html { min-height:100%; background:var(--paper); }
+    body {
+      min-height:100vh;
+      margin:0;
+      background:linear-gradient(145deg,#fff1f1 0%,#f9e8e8 48%,#fff0ed 100%);
+      color:var(--ink);
+      font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    main { width:min(560px,calc(100% - 36px)); min-height:100vh; margin:0 auto; padding:62px 0 25px; display:flex; flex-direction:column; align-items:center; }
+    .profile { width:100%; text-align:center; }
+    .avatar { width:96px; height:96px; margin:0 auto 20px; overflow:hidden; border:4px solid #fff; border-radius:50%; background:#f6d9dc; box-shadow:0 7px 20px #8d263020; }
+    .avatar img { display:block; width:100%; height:100%; object-fit:cover; }
+    .eyebrow { color:#6e6579; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { margin:9px 0 8px; font:750 clamp(34px,8vw,43px)/1.08 Inter,"Avenir Next",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; letter-spacing:-.05em; }
+    .bio { max-width:400px; margin:0 auto; color:var(--muted); font-size:14px; }
+    .about { width:100%; margin-top:30px; padding:18px 20px; border:1px solid #ffffffb8; border-radius:18px; background:#ffffff8c; box-shadow:0 5px 13px #6d242410; text-align:left; }
+    .about h2 { margin:0 0 5px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+    .about p { margin:0; color:#554e59; font-size:14px; }
+    .guestbook { width:100%; margin-top:18px; padding:18px; border:1px solid #ffffffd9; border-radius:20px; background:#ffffff9c; box-shadow:0 8px 24px #7d313112; backdrop-filter:blur(12px); }
+    .guestbook h2 { margin:0 0 5px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
+    .guestbook-note { margin:0 0 10px; color:#827b89; font-size:12px; text-align:center; }
+    .guestbook iframe { display:block; width:100%; }
+    .stack { width:100%; margin-top:30px; padding:18px; border:1px solid #ffffffd9; border-radius:20px; background:#ffffff9c; box-shadow:0 8px 24px #7d313112; backdrop-filter:blur(12px); text-align:left; }
+    .stack h2 { margin:0 0 5px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
+    .stack-note { margin:0 0 15px; color:#827b89; font-size:12px; text-align:center; }
+    .stack-items { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+    .stack-item { display:flex; min-height:62px; align-items:center; justify-content:flex-start; gap:10px; padding:10px 12px; border:1px solid #eee6e5; border-radius:14px; background:#fff; color:#554e59; font-size:13px; font-weight:700; box-shadow:0 3px 9px #5b34320d; }
+    .stack-item svg { display:block; width:27px; height:27px; flex:0 0 auto; }
+    @media (max-width:520px) { .stack-items { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    .links { width:100%; display:grid; gap:13px; margin-top:18px; }
+    .link {
+      display:grid;
+      grid-template-columns:40px minmax(0,1fr) 40px;
+      align-items:center;
+      min-height:68px;
+      padding:11px 15px;
+      border:2px solid #fff;
+      border-radius:18px;
+      background:#fff;
+      color:#2a2433;
+      text-decoration:none;
+      box-shadow:0 5px 13px #6d242417;
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    }
+    .link:hover { transform:translateY(-2px); box-shadow:0 10px 22px #6d242725; background:#fcfaff; }
+    .link:active { transform:translateY(0); }
+    .link-icon { display:grid; width:38px; height:38px; place-items:center; border-radius:13px; background:#fff0f0; color:#a82432; }
+    .link-github .link-icon { color:#25222b; background:#f0eff2; }
+    .link-instagram .link-icon { color:#d94b8a; background:#fff0f6; }
+    .link-pauzex .link-icon { background:transparent; color:#633fd0; }
+    .pauzex-mark { font-size:13px; font-weight:850; letter-spacing:-.12em; line-height:1; white-space:nowrap; }
+    .link-website .link-icon { color:#c43140; background:#ffebed; }
+    .link-amazon .link-icon { color:#24202c; background:#fff2e5; }
+    .link-email .link-icon { color:#b52f3c; background:#ffebed; }
+    .link-icon svg { display:block; width:20px; height:20px; }
+    .link-icon img { display:block; width:30px; height:30px; border-radius:5px; object-fit:contain; }
+    .link-copy { min-width:0; text-align:center; }
+    .link-name { display:block; font-size:14px; font-weight:700; }
+    .link-detail { display:block; overflow:hidden; color:#827b89; font-size:11px; text-overflow:ellipsis; white-space:nowrap; }
+    .link-arrow { justify-self:end; padding-right:3px; color:#8d8498; font-size:17px; transition:transform .18s ease; }
+    .link:hover .link-arrow { transform:translate(2px,-2px); }
+    footer { width:100%; margin-top:auto; padding-top:38px; color:#807888; font-size:10px; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
+    a:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+    @media (max-width:520px) { main { padding-top:48px; } .links { gap:11px; margin-top:26px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="profile">
+      <div class="avatar"><img src="https://avatars.githubusercontent.com/u/324624272?v=4" alt="" width="92" height="92"></div>
+      <div class="eyebrow">Independent developer · India</div>
+      <h1>Hey, I’m Pauze.</h1>
+      <p class="bio">Building web apps, Android tools, and curious experiments. Find my work and follow along.</p>
+    </header>
+
+    <nav class="links" aria-label="Pauze's links" id="links"></nav>
+
+    <section class="stack" aria-labelledby="stack-title">
+      <h2 id="stack-title">Tech stack</h2>
+      <p class="stack-note">Languages I work with</p>
+      <div class="stack-items">
+        <span class="stack-item"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#68217a" d="M16 2 29 9.5v13L16 30 3 22.5v-13L16 2Z"/><path fill="#fff" d="M8 15.8c0-3.2 2.3-5.3 5.6-5.3 1.7 0 3 .5 4 1.6l-2 2.1c-.5-.6-1.1-.9-2-.9-1.6 0-2.6 1-2.6 2.6s1 2.7 2.6 2.7c.9 0 1.6-.3 2.1-.9l1.9 2.1c-1 1.1-2.4 1.7-4.1 1.7-3.3 0-5.5-2.2-5.5-5.7Zm11.7-5.1h3v4.7l3.4-4.7h3.4L26 16l3.8 5.5h-3.6l-3.5-5v5h-3V10.7Z"/></svg>C#</span>
+        <span class="stack-item"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#3776ab" d="M15.8 3c-6.8 0-6.4 3-6.4 3v3.1h6.5v1H6.8S3 9.7 3 16s3.4 6 3.4 6h2v-3c0-2 1.7-3.7 3.7-3.7h8.6s3.3.1 3.3-3.2V6.2S24.5 3 15.8 3Zm-3.6 2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/><path fill="#ffd343" d="M16.2 29c6.8 0 6.4-3 6.4-3v-3.1h-6.5v-1h9.1s3.8.4 3.8-5.9-3.4-6-3.4-6h-2v3c0 2-1.7 3.7-3.7 3.7h-8.6S8 16.6 8 19.9v5.9s-.5 3.2 8.2 3.2Zm3.6-2.1a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Z"/></svg>Python</span>
+        <span class="stack-item"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#f7df1e" d="M3 3h26v26H3z"/><path fill="#222" d="M17 22.5c.5.8 1.1 1.2 2.1 1.2.9 0 1.5-.4 1.5-1 0-.7-.6-1-1.7-1.5l-.6-.3c-1.8-.8-3-1.8-3-3.9 0-1.9 1.4-3.4 3.6-3.4 1.6 0 2.8.6 3.6 2.1l-2 1.3c-.4-.7-.8-1-1.5-1-.6 0-1 .4-1 .9 0 .6.4.9 1.3 1.3l.6.3c2.1.9 3.3 1.9 3.3 4.1 0 2.4-1.9 3.7-4.4 3.7-2.4 0-3.9-1.1-4.7-2.6l2.9-1.2Zm-7.1.1c.4.7.8 1.2 1.7 1.2.8 0 1.3-.3 1.3-1.6v-8.4h2.9v8.5c0 3-1.7 4.4-4.1 4.4-2.2 0-3.5-1.1-4.2-2.7l2.4-1.4Z" transform="translate(-1 -1) scale(.94)"/></svg>JavaScript</span>
+        <span class="stack-item"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="kotlin-gradient" x1="4" y1="28" x2="28" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#7f52ff"/><stop offset=".52" stop-color="#c757bc"/><stop offset="1" stop-color="#ff8b3d"/></linearGradient></defs><path fill="url(#kotlin-gradient)" d="M4 4h24L16 16l12 12H4V4Zm0 24 12-12L4 4v24Z"/></svg>Kotlin</span>
+        <span class="stack-item"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#f05138" d="M25.8 7.5c-1.2 1.2-2.8 1.9-4.5 2.1 1.3-1.1 2-2.7 1.9-4.4-1.2 1.5-2.9 2.4-4.8 2.6-2-1.6-4.9-1.4-6.7.4-1.2 1.2-1.7 2.9-1.3 4.6-4-.2-7.7-2.1-10.3-5.2-1.3 2.3-.6 5.2 1.6 6.7-.8 0-1.6-.2-2.3-.6v.1c0 2.5 1.8 4.7 4.3 5.2-.7.2-1.5.2-2.2.1.7 2.1 2.7 3.6 5 3.6-2 1.6-4.5 2.4-7 2.3 2.5 1.6 5.4 2.4 8.4 2.4 10 0 15.4-8.3 15.1-15.7 1.1-.8 2-1.8 2.8-3Z" transform="translate(3 1) scale(.9)"/></svg>Swift</span>
+      </div>
+    </section>
+
+    <section class="about" aria-labelledby="about-title">
+      <h2 id="about-title">About me</h2>
+      <p>I’m Pauze, an independent developer from India. I build web apps and Android tools, and I’m behind PauzeX Developments.</p>
+    </section>
+
+    <section class="guestbook" aria-labelledby="guestbook-title">
+      <h2 id="guestbook-title">Guestbook</h2>
+      <p class="guestbook-note">Leave a note — messages are public and posted with GitHub.</p>
+      <script src="https://utteranc.es/client.js"
+        repo="PauzeDevs/linkprofilewebsite"
+        issue-term="guestbook"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>
+    </section>
+
+    <footer>© 2026 Pauze · Thanks for stopping by.</footer>
+  </main>
+  <script>
+    const icons = {
+      github: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297a12 12 0 0 0-3.797 23.4c.6.113.82-.258.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.467-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.233 1.911 1.233 3.22 0 4.61-2.804 5.625-5.476 5.92.43.37.814 1.102.814 2.222v3.293c0 .322.216.694.825.576A12.005 12.005 0 0 0 12 .297z"/></svg>',
+      instagram: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.6" r="1.1" fill="currentColor"/></svg>',
+      pauzex: '<span class="pauzex-mark">PX</span>',
+      website: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.5"/></svg>',
+      amazon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.3 5.2c-3.1 0-5.1 1.7-5.1 4.4 0 2.3 1.6 3.7 4.1 3.7 1.7 0 3-.6 3.9-1.7l.2.8c.1.4.3.6.7.6h1.8c.5 0 .7-.2.7-.7V5.2c0-1.7-.4-2.9-1.2-3.7-.8-.8-2.1-1.2-3.9-1.2-1.6 0-3.1.3-4.4.9-.4.2-.5.4-.4.8l.3 1c.1.4.3.6.7.6.2 0 .4-.1.7-.2.9-.4 1.8-.6 2.7-.6.7 0 1.2.2 1.5.5.3.3.4.8.4 1.5v.5c-.9-.4-2-.6-3.2-.6Zm.9 5.8c-1.2 0-1.9-.6-1.9-1.8 0-1.4.9-2.1 2.6-2.1.8 0 1.6.1 2.3.4v1.3c0 1.3-1.3 2.2-3 2.2Z" transform="translate(0 3)"/><path d="M3.8 18.1c4.3 2.6 10.3 2.5 15-.3.4-.2.7.1.4.5-2.1 2.4-5.8 3.8-9.4 3.4-2.8-.3-5.3-1.5-6.4-3.1-.3-.4 0-.8.4-.5Z"/></svg>',
+      email: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    };
+    const links = [
+      { name: "Main website", detail: "pauze.is-a.dev", url: "https://pauze.is-a.dev", icon: "website" },
+      { name: "PauzeX Developments", detail: "pauzex.devs.surf", url: "https://pauzex.devs.surf", icon: "pauzex" },
+      { name: "PauzeLinks", detail: "My links website", url: "https://pauzelinks.devs.surf", icon: "website" },
+      { name: "RepoShield", detail: "reposhield.devs.surf", url: "https://reposhield.devs.surf", icon: "website" },
+      { name: "GitHub", detail: "@PauzeDevs", url: "https://github.com/PauzeDevs", icon: "github" },
+      { name: "Instagram", detail: "@pauze.wav", url: "https://instagram.com/pauze.wav", icon: "instagram" },
+      { name: "Amazon Music", detail: "@whyuloveme", url: "https://music.amazon.in/profiles/@whyuloveme?ref=dm_sh_EbieXHx93d6WAJ3eK6i25SWjA", icon: "amazon" },
+      { name: "Email me", detail: "githubpauze@gmail.com", url: "mailto:githubpauze@gmail.com", icon: "email" }
+    ];
+
+    const list = document.querySelector("#links");
+    for (const item of links) {
+      const link = document.createElement("a");
+      link.className = "link link-" + item.icon;
+      link.href = item.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.innerHTML = '<span class="link-icon" aria-hidden="true"></span><span class="link-copy"><span class="link-name"></span><span class="link-detail"></span></span><span class="link-arrow" aria-hidden="true">↗</span>';
+      link.querySelector(".link-icon").innerHTML = icons[item.icon] || "";
+      link.querySelector(".link-name").textContent = item.name;
+      link.querySelector(".link-detail").textContent = item.detail;
+      list.append(link);
+    }
+
+
+  </script>
+</body>
+</html>
