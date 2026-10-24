@@ -3,74 +3,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f3ee">
+  <meta name="theme-color" content="#090a10">
   <meta name="description" content="Pauze Devs' profiles, links, and projects.">
   <title>Pauze Devs — links and projects</title>
   <style>
     :root {
-      color-scheme: light;
-      --ink: #20231f;
-      --muted: #72776f;
-      --paper: #f5f3ee;
-      --card: #fffefa;
-      --line: #e8e5dc;
-      --green: #345844;
-      --soft-green: #eef1e7;
+      color-scheme: dark;
+      --ink: #f4f2ee;
+      --muted: #a6a6b0;
+      --paper: #090a10;
+      --card: #11131b;
+      --line: #292b36;
+      --accent: #d6d4ca;
+      --soft: #1b1d27;
     }
     * { box-sizing: border-box; }
+    html { min-height:100%; background:var(--paper); }
     body {
-      margin: 0;
-      min-height: 100vh;
+      position:relative;
+      isolation:isolate;
+      margin:0;
+      min-height:100vh;
       background:
-        radial-gradient(ellipse at 12% 8%, #dce9bd 0, transparent 37rem),
-        radial-gradient(ellipse at 92% 88%, #bfd8c7 0, transparent 38rem),
-        radial-gradient(ellipse at 88% 12%, #eee2b4 0, transparent 29rem),
-        var(--paper);
-      background-size: 150% 150%, 150% 150%, 150% 150%, auto;
-      background-position: 0% 0%, 100% 100%, 100% 0%, 0 0;
-      background-attachment: fixed;
-      animation: background-drift 18s ease-in-out infinite alternate;
-      color: var(--ink);
-      font: 16px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(ellipse at 50% 24%, #151725 0, transparent 54rem),
+        linear-gradient(180deg, #0c0d15 0%, #090a10 70%, #08090e 100%);
+      color:var(--ink);
+      font:16px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    @keyframes background-drift {
-      from { background-position: 0% 0%, 100% 100%, 100% 0%, 0 0; }
-      to { background-position: 35% 30%, 60% 70%, 30% 42%, 0 0; }
-    }
+    #starfield { position:fixed; inset:0; z-index:-1; width:100%; height:100%; pointer-events:none; }
     main { width:min(680px, calc(100% - 40px)); margin:0 auto; padding:72px 0 36px; }
-    .topline { display:flex; align-items:center; gap:10px; color:var(--green); font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
-    .dot { width:8px; height:8px; background:#87a469; border-radius:50%; box-shadow:0 0 0 4px #87a46922; }
+    .topline { display:flex; align-items:center; gap:10px; color:#c9c8c1; font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; }
+    .dot { width:6px; height:6px; background:#e4e1d5; border-radius:50%; box-shadow:0 0 10px #e4e1d588; }
     .identity { display:flex; align-items:center; gap:18px; margin-top:28px; }
-    .avatar { display:grid; place-items:center; flex:0 0 68px; width:68px; height:68px; border:1px solid #dce3d1; border-radius:22px; background:var(--soft-green); color:var(--green); font:700 22px/1 Georgia,serif; letter-spacing:-.06em; }
+    .avatar { display:grid; place-items:center; flex:0 0 68px; width:68px; height:68px; border:1px solid #424450; border-radius:22px; background:linear-gradient(145deg,#242632,#141620); color:#eeece5; font:700 22px/1 Georgia,serif; letter-spacing:-.06em; box-shadow:0 0 28px #aeb8ff0c; }
     h1 { margin:0; font:500 clamp(42px, 9vw, 64px)/.98 Georgia, "Times New Roman", serif; letter-spacing:-.055em; }
     .bio { max-width:460px; margin:17px 0 0; color:var(--muted); font-size:17px; }
-    .section-title { display:flex; align-items:center; gap:12px; margin:37px 0 14px; color:#74796f; font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }
-    .section-title:after { content:""; height:1px; flex:1; background:var(--line); }
+    .section-title { display:flex; align-items:center; gap:12px; margin:37px 0 14px; color:#9a9ba7; font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; }
+    .section-title:after { content:""; height:1px; flex:1; background:linear-gradient(90deg,var(--line),transparent); }
     .profiles { display:grid; gap:11px; }
     .profile, .project {
       display:flex; align-items:center; gap:15px; padding:14px 16px;
-      border:1px solid var(--line); border-radius:16px; background:var(--card);
-      color:inherit; text-decoration:none; transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      border:1px solid var(--line); border-radius:14px; background:linear-gradient(125deg,#12141cdd,#101119e8);
+      color:inherit; text-decoration:none;
+      transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
+      backdrop-filter:blur(8px);
     }
-    .profile:hover, .project:hover { transform:translateY(-2px); border-color:#b6c4ad; box-shadow:0 10px 28px #28362c0d; }
-    .icon { display:grid; place-items:center; flex:0 0 43px; width:43px; height:43px; border-radius:13px; background:var(--soft-green); color:var(--green); font-size:15px; font-weight:750; }
+    .profile:hover, .project:hover { transform:translateY(-2px); border-color:#555766; background:#171923ee; box-shadow:0 10px 32px #0005,0 0 24px #aeb8ff0a; }
+    .icon { display:grid; place-items:center; flex:0 0 43px; width:43px; height:43px; border:1px solid #333541; border-radius:13px; background:var(--soft); color:#e5e3dc; font-size:14px; font-weight:750; }
     .details { min-width:0; flex:1; }
-    .name { display:block; font-weight:700; }
+    .name { display:block; font-weight:650; }
     .handle { display:block; overflow:hidden; color:var(--muted); font-size:13px; text-overflow:ellipsis; white-space:nowrap; }
-    .arrow { color:var(--green); font-size:20px; }
+    .arrow { color:#b7b6b0; font-size:20px; transition:transform .2s ease; }
+    .profile:hover .arrow, .project:hover .arrow { transform:translate(2px,-2px); }
     .project { align-items:flex-start; }
     .project .icon { font-size:20px; }
-    footer { display:flex; justify-content:space-between; gap:16px; margin-top:40px; padding-top:17px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
-    footer a { color:var(--green); text-decoration:none; }
-    a:focus-visible { outline:3px solid #8ba16e; outline-offset:3px; }
+    footer { display:flex; justify-content:space-between; gap:16px; margin-top:40px; padding-top:17px; border-top:1px solid var(--line); color:#888a96; font-size:12px; }
+    footer a { color:#d0cec7; text-decoration:none; }
+    footer a:hover { color:#fff; }
+    a:focus-visible { outline:2px solid #d6d4ca; outline-offset:4px; }
     @media (max-width:520px) { main { padding-top:50px; } footer { flex-direction:column; } }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; }
-      body { animation:none; }
     }
   </style>
 </head>
 <body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
   <main>
     <div class="topline"><span class="dot" aria-hidden="true"></span> Personal links</div>
     <header>
@@ -94,7 +92,6 @@
     <footer><span>Thanks for stopping by.</span><a href="https://github.com/PauzeDevs" target="_blank" rel="noopener noreferrer">GitHub · @PauzeDevs ↗</a></footer>
   </main>
   <script>
-    // Add each profile as { name, handle, url, icon }.
     const profiles = [
       { name: "GitHub", handle: "@PauzeDevs", url: "https://github.com/PauzeDevs", icon: "GH" },
       { name: "Instagram", handle: "@pauze.wav", url: "https://instagram.com/pauze.wav", icon: "IG" }
@@ -113,6 +110,54 @@
       link.querySelector(".handle").textContent = profile.handle;
       list.append(link);
     }
+
+    const canvas = document.querySelector("#starfield");
+    const context = canvas.getContext("2d");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let width = 0;
+    let height = 0;
+    let stars = [];
+
+    function resizeStarfield() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      const count = Math.min(700, Math.max(180, Math.round(width * height / 1900)));
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() < 0.96 ? Math.random() * 0.8 + 0.2 : Math.random() * 1.2 + 0.8,
+        phase: Math.random() * Math.PI * 2,
+        pace: Math.random() * 0.018 + 0.004,
+        drift: Math.random() * 0.12 + 0.015
+      }));
+      drawStarfield(0);
+    }
+
+    function drawStarfield(time) {
+      context.clearRect(0, 0, width, height);
+      for (const star of stars) {
+        const shimmer = reduceMotion ? 0.65 : 0.28 + (Math.sin(time * star.pace + star.phase) + 1) * 0.3;
+        context.beginPath();
+        context.fillStyle = "rgba(224, 229, 245, " + shimmer.toFixed(3) + ")";
+        context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        context.fill();
+        if (!reduceMotion) {
+          star.y -= star.drift;
+          if (star.y < -2) {
+            star.y = height + 2;
+            star.x = Math.random() * width;
+          }
+        }
+      }
+      if (!reduceMotion) window.requestAnimationFrame(drawStarfield);
+    }
+
+    window.addEventListener("resize", resizeStarfield, { passive: true });
+    resizeStarfield();
   </script>
 </body>
 </html>
