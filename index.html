@@ -34,6 +34,10 @@
     .about { width:100%; margin-top:30px; padding:18px 20px; border:1px solid #ffffffb8; border-radius:18px; background:#ffffff8c; box-shadow:0 5px 13px #6d242410; text-align:left; }
     .about h2 { margin:0 0 5px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
     .about p { margin:0; color:#554e59; font-size:14px; }
+    .stack { width:100%; margin-top:30px; text-align:center; }
+    .stack h2 { margin:0 0 10px; color:#ab2c3a; font-size:12px; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+    .stack-items { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+    .stack-item { padding:6px 12px; border:1px solid #ffffffd0; border-radius:999px; background:#ffffffb8; color:#554e59; font-size:12px; font-weight:650; }
     .links { width:100%; display:grid; gap:13px; margin-top:18px; }
     .link {
       display:grid;
@@ -58,6 +62,7 @@
     .pauzex-mark { font-size:13px; font-weight:850; letter-spacing:-.12em; line-height:1; white-space:nowrap; }
     .link-website .link-icon { color:#c43140; background:#ffebed; }
     .link-amazon .link-icon { color:#24202c; background:#fff2e5; }
+    .link-email .link-icon { color:#b52f3c; background:#ffebed; }
     .link-icon svg { display:block; width:20px; height:20px; }
     .link-icon img { display:block; width:30px; height:30px; border-radius:5px; object-fit:contain; }
     .link-copy { min-width:0; text-align:center; }
@@ -82,6 +87,15 @@
 
     <nav class="links" aria-label="Pauze's links" id="links"></nav>
 
+    <section class="stack" aria-labelledby="stack-title">
+      <h2 id="stack-title">Tech stack for this page</h2>
+      <div class="stack-items">
+        <span class="stack-item">HTML</span>
+        <span class="stack-item">CSS</span>
+        <span class="stack-item">JavaScript</span>
+      </div>
+    </section>
+
     <section class="about" aria-labelledby="about-title">
       <h2 id="about-title">About me</h2>
       <p>I’m Pauze, an independent developer from India. I build web apps and Android tools, and I’m behind PauzeX Developments.</p>
@@ -96,13 +110,15 @@
       pauzex: '<span class="pauzex-mark">PX</span>',
       website: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.5"/></svg>',
       amazon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.3 5.2c-3.1 0-5.1 1.7-5.1 4.4 0 2.3 1.6 3.7 4.1 3.7 1.7 0 3-.6 3.9-1.7l.2.8c.1.4.3.6.7.6h1.8c.5 0 .7-.2.7-.7V5.2c0-1.7-.4-2.9-1.2-3.7-.8-.8-2.1-1.2-3.9-1.2-1.6 0-3.1.3-4.4.9-.4.2-.5.4-.4.8l.3 1c.1.4.3.6.7.6.2 0 .4-.1.7-.2.9-.4 1.8-.6 2.7-.6.7 0 1.2.2 1.5.5.3.3.4.8.4 1.5v.5c-.9-.4-2-.6-3.2-.6Zm.9 5.8c-1.2 0-1.9-.6-1.9-1.8 0-1.4.9-2.1 2.6-2.1.8 0 1.6.1 2.3.4v1.3c0 1.3-1.3 2.2-3 2.2Z" transform="translate(0 3)"/><path d="M3.8 18.1c4.3 2.6 10.3 2.5 15-.3.4-.2.7.1.4.5-2.1 2.4-5.8 3.8-9.4 3.4-2.8-.3-5.3-1.5-6.4-3.1-.3-.4 0-.8.4-.5Z"/></svg>',
+      email: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     };
     const links = [
       { name: "Main website", detail: "pauze.is-a.dev", url: "https://pauze.is-a.dev", icon: "website" },
       { name: "PauzeX Developments", detail: "pauzex.devs.surf", url: "https://pauzex.devs.surf", icon: "pauzex" },
       { name: "GitHub", detail: "@PauzeDevs", url: "https://github.com/PauzeDevs", icon: "github" },
       { name: "Instagram", detail: "@pauze.wav", url: "https://instagram.com/pauze.wav", icon: "instagram" },
-      { name: "Amazon Music", detail: "@whyuloveme", url: "https://music.amazon.in/profiles/@whyuloveme?ref=dm_sh_EbieXHx93d6WAJ3eK6i25SWjA", icon: "amazon" }
+      { name: "Amazon Music", detail: "@whyuloveme", url: "https://music.amazon.in/profiles/@whyuloveme?ref=dm_sh_EbieXHx93d6WAJ3eK6i25SWjA", icon: "amazon" },
+      { name: "Email me", detail: "githubpauze@gmail.com", url: "mailto:githubpauze@gmail.com", icon: "email" }
     ];
 
     const list = document.querySelector("#links");
