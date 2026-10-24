@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ee">
+  <meta name="description" content="All of Pauze Devs' profiles and links in one place.">
+  <title>Pauze Devs — around the web</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20231f;
+      --muted: #72776f;
+      --paper: #f5f3ee;
+      --card: #fffefa;
+      --line: #e8e5dc;
+      --green: #345844;
+      --lime: #d9e8a7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 15% 8%, #e6ebd7 0, transparent 32rem),
+        var(--paper);
+      color: var(--ink);
+      font: 16px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(680px, calc(100% - 40px)); margin: 0 auto; padding: 76px 0 36px; }
+    .topline { display:flex; align-items:center; gap:10px; color:var(--green); font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+    .dot { width:8px; height:8px; background:#87a469; border-radius:50%; box-shadow:0 0 0 4px #87a46922; }
+    h1 { margin:26px 0 12px; font:500 clamp(52px, 11vw, 84px)/.95 Georgia, "Times New Roman", serif; letter-spacing:-.06em; }
+    .intro { max-width:430px; margin:0; color:var(--muted); font-size:17px; }
+    .section-title { display:flex; align-items:center; gap:12px; margin:40px 0 14px; color:#74796f; font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }
+    .section-title:after { content:""; height:1px; flex:1; background:var(--line); }
+    .profiles { display:grid; gap:11px; }
+    .profile {
+      display:flex; align-items:center; gap:15px; padding:14px 16px;
+      border:1px solid var(--line); border-radius:16px; background:var(--card);
+      color:inherit; text-decoration:none; transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .profile:hover { transform:translateY(-2px); border-color:#b6c4ad; box-shadow:0 10px 28px #28362c0d; }
+    .icon { display:grid; place-items:center; flex:0 0 43px; width:43px; height:43px; border-radius:13px; background:#eef1e7; color:var(--green); font-size:17px; font-weight:750; }
+    .details { min-width:0; flex:1; }
+    .name { display:block; font-weight:700; }
+    .handle { display:block; overflow:hidden; color:var(--muted); font-size:13px; text-overflow:ellipsis; white-space:nowrap; }
+    .arrow { color:var(--green); font-size:20px; }
+    .note { margin:14px 2px 0; color:var(--muted); font-size:13px; }
+    footer { display:flex; justify-content:space-between; gap:16px; margin-top:42px; padding-top:17px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    footer a { color:var(--green); text-decoration:none; }
+    @media (max-width:520px) { main { padding-top:52px; } footer { flex-direction:column; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topline"><span class="dot" aria-hidden="true"></span> Around the web</div>
+    <h1>Pauze<br>Devs.</h1>
+    <p class="intro">Find my work and follow along. Here are my profiles, all together in one place.</p>
+    <div class="section-title">My profiles</div>
+    <nav class="profiles" aria-label="Pauze Devs profiles" id="profiles"></nav>
+    <p class="note">More links can be added here as you share your profile URLs.</p>
+    <footer><span>One place for all my links.</span><a href="https://github.com/PauzeDevs" target="_blank" rel="noopener noreferrer">Made by Pauze Devs ↗</a></footer>
+  </main>
+  <script>
+    // Add each profile as { name, handle, url, icon }.
+    const profiles = [
+      { name: "GitHub", handle: "@PauzeDevs", url: "https://github.com/PauzeDevs", icon: "GH" }
+    ];
+
+    const list = document.querySelector("#profiles");
+    for (const profile of profiles) {
+      const link = document.createElement("a");
+      link.className = "profile";
+      link.href = profile.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.innerHTML = '<span class="icon" aria-hidden="true"></span><span class="details"><span class="name"></span><span class="handle"></span></span><span class="arrow" aria-hidden="true">↗</span>';
+      link.querySelector(".icon").textContent = profile.icon;
+      link.querySelector(".name").textContent = profile.name;
+      link.querySelector(".handle").textContent = profile.handle;
+      list.append(link);
+    }
+  </script>
+</body>
+</html>
